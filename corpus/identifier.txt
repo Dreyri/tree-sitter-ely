@@ -1,0 +1,32 @@
+==========
+Simple identifier
+==========
+
+helloworld
+
+---
+
+(source
+  (identifier))
+
+=========
+Identifier literal
+=========
+
+|hello with spaces|
+
+---
+
+(source
+  (identifier_lit))
+
+========
+Escaped identifier literal
+========
+
+|hello\|with escapes|
+
+---
+
+(source
+  (identifier_lit))
