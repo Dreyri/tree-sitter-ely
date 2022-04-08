@@ -1,5 +1,5 @@
 ==========
-Empty list
+Empty parenthesis list
 ==========
 
 ()
@@ -8,3 +8,25 @@ Empty list
 
 (source
   (parens_list))
+
+========
+Empty bracket list
+========
+
+[]
+
+--------
+
+(source
+  (bracket_list))
+
+========
+Empty brace list
+========
+
+{}
+
+--------
+
+(source
+  (brace_list))
