@@ -9,6 +9,39 @@ helloworld
 (source
   (identifier))
 
+
+========
+Complex identifier
+========
+
+_hello-world123fds
+
+---
+
+(source
+  (identifier))
+
+========
+Peculiar identifiers
+========
+
+*
++
+-
+/
+_
+...
+
+---
+
+(source
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier)
+  (identifier))
+
 =========
 Identifier literal
 =========

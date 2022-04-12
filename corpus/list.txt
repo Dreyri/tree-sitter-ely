@@ -30,3 +30,37 @@ Empty brace list
 
 (source
   (brace_list))
+
+========
+List with literals
+========
+
+("hello" 123 "example")
+
+--------
+
+(source
+  (parens_list
+    (string_lit)
+    (number)
+    (string_lit)))
+
+========
+Nested list
+========
+
+(define (mul x y) (* x y))
+
+--------
+
+(source
+  (parens_list
+    (identifier)
+    (parens_list
+      (identifier)
+      (identifier)
+      (identifier))
+    (parens_list
+      (identifier)
+      (identifier)
+      (identifier))))

@@ -5,15 +5,19 @@ const STRING = token(seq('"',
         repeat(/[^"\\]/))),
     '"'));
 
+const PECULIAR_IDENTIFIER = token(choice('+', '-', '...'));
+
 module.exports = grammar({
     name: 'ely',
 
     rules: {
         source: $ => repeat($._sexp),
 
-        _sexp: $ => choice($._list, $.identifier, $.identifier_lit, $._literal),
+        _sexp: $ => choice($._list, $._identifier, $._atom),
 
-        identifier: $ => /[a-zA-Z]+/,
+        _identifier: $ => choice($.identifier, $.identifier_lit),
+
+        identifier: $ => token(choice(PECULIAR_IDENTIFIER, /[\/_\-\*\p{XID_Start}][_\-\*\p{XID_Continue}]*/)),
         identifier_lit: $ => token(seq('|',
             repeat(/[^|\\]/),
             repeat(seq("\\",
@@ -30,6 +34,8 @@ module.exports = grammar({
 
         number: $ => /\d+/,
         string_lit: $ => STRING,
+
+        _atom: $ => $._literal,
     }
 
 });

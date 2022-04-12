@@ -17,21 +17,58 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_atom"
+        }
+      ]
+    },
+    "_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {
           "type": "SYMBOL",
           "name": "identifier_lit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_literal"
         }
       ]
     },
     "identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "+"
+                },
+                {
+                  "type": "STRING",
+                  "value": "-"
+                },
+                {
+                  "type": "STRING",
+                  "value": "..."
+                }
+              ]
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "[\\/_\\-\\*\\p{XID_Start}][_\\-\\*\\p{XID_Continue}]*"
+          }
+        ]
+      }
     },
     "identifier_lit": {
       "type": "TOKEN",
@@ -218,6 +255,10 @@
           }
         ]
       }
+    },
+    "_atom": {
+      "type": "SYMBOL",
+      "name": "_literal"
     }
   },
   "extras": [
