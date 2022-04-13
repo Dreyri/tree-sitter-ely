@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "float_lit",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -24,7 +28,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "integer_lit",
           "named": true
         },
         {
@@ -55,6 +59,10 @@
           "named": true
         },
         {
+          "type": "float_lit",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -63,7 +71,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "integer_lit",
           "named": true
         },
         {
@@ -76,6 +84,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "integer_lit",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "parens_list",
@@ -94,6 +107,10 @@
           "named": true
         },
         {
+          "type": "float_lit",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -102,7 +119,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "integer_lit",
           "named": true
         },
         {
@@ -133,6 +150,10 @@
           "named": true
         },
         {
+          "type": "float_lit",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -141,7 +162,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "integer_lit",
           "named": true
         },
         {
@@ -154,6 +175,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "#",
+    "named": false
   },
   {
     "type": "(",
@@ -172,15 +197,15 @@
     "named": false
   },
   {
+    "type": "float_lit",
+    "named": true
+  },
+  {
     "type": "identifier",
     "named": true
   },
   {
     "type": "identifier_lit",
-    "named": true
-  },
-  {
-    "type": "number",
     "named": true
   },
   {

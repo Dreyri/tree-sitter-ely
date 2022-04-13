@@ -7,13 +7,15 @@ const STRING = token(seq('"',
 
 const PECULIAR_IDENTIFIER = token(choice('+', '-', '...'));
 
+const DIGIT_HEX = /[0-9a-fA-F]/
+
 module.exports = grammar({
     name: 'ely',
 
     rules: {
         source: $ => repeat($._sexp),
 
-        _sexp: $ => choice($._list, $._identifier, $._atom),
+        _sexp: $ => choice($._list, $._atom),
 
         _identifier: $ => choice($.identifier, $.identifier_lit),
 
@@ -30,12 +32,25 @@ module.exports = grammar({
         bracket_list: $ => seq('[', repeat($._sexp), ']'),
         brace_list: $ => seq('{', repeat($._sexp), '}'),
 
-        _literal: $ => choice($.number, $.string_lit),
+        _literal: $ => choice($._number_lit, $.string_lit),
 
-        number: $ => /\d+/,
+        _hex_lit: $ => seq('#', /[xX]/, DIGIT_HEX),
+
+        _number_lit: $ => choice($.float_lit, $.integer_lit),
+        integer_lit: $ => choice($._hex_lit, /[0-9]+/),
+        float_lit: $ => {
+            const exponent = /[eE][+-]?[0-9]+/;
+
+            return token(choice(
+                seq(/[0-9]+/, '.', /[0-9]+/, optional(exponent)),
+                seq('.', /[0-9]+/, optional(exponent)),
+                seq(/[0-9]+/, exponent)
+                )
+            );            
+        },
         string_lit: $ => STRING,
 
-        _atom: $ => $._literal,
+        _atom: $ => choice($._literal, $._identifier)
     }
 
 });

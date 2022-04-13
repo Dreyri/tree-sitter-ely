@@ -42,7 +42,7 @@ List with literals
 (source
   (parens_list
     (string_lit)
-    (number)
+    (integer_lit)
     (string_lit)))
 
 ========

@@ -7,4 +7,32 @@ Integer
 -----
 
 (source
-  (number))
+  (integer_lit))
+
+========
+Float
+========
+
+123.456
+
+---
+
+(source
+  (float_lit))
+
+========
+Float with exponent
+========
+
+123.43e+10
+123.4e10
+123.1e-10
+.1e5
+
+---
+
+(source
+  (float_lit)
+  (float_lit)
+  (float_lit)
+  (float_lit))
